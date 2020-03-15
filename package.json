@@ -1,0 +1,8 @@
+{
+  "name": "fake-news-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/t4nay/fake-news-scraper.git",
+  "author": "t4nay <td4416@pleasantonusd.net>",
+  "license": "MIT"
+}
