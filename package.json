@@ -4,5 +4,12 @@
   "main": "index.js",
   "repository": "https://github.com/t4nay/fake-news-scraper.git",
   "author": "t4nay <td4416@pleasantonusd.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request-promise": "^4.2.5",
+    "url-parse": "^1.4.7"
+  }
 }

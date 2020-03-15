@@ -43,12 +43,31 @@ async function scrape(r, $,  host){
       return await asianpolicy(r, $);
     case 'dailyfilipino.altervista.org':
       return await dailyfilipino(r, $);
-      case 'dutertetrendingnews.blogspot.com':
-        return await dutertetrendingnews(r, $);
-      case 'www.lugto.com':
-        return await lugto(r, $);
-      case 'grpshorts.blogspot.com':
-        return await grpshorts(r, $);
+    case 'dutertetrendingnews.blogspot.com':
+      return await dutertetrendingnews(r, $);
+    case 'www.lugto.com':
+      return await lugto(r, $);
+    case 'grpshorts.blogspot.com':
+      return await grpshorts(r, $);
+		case 'www.maharlikanews.com':
+        return await maharlikanews(r, $);
+		case 'ilikeyouquotes.blogspot.com':
+        return await ilikeyouquotes(r, $);
+		case 'philnewscourier.blogspot.com':
+			return await philnewscourier(r, $);
+		case 'pinoynewsblogger.blogspot.com':
+			return await pinoynewsblogger(r, $);
+		case 'pinoytrendingnews.net':
+			return await pinoytrendingnews(r, $);
+		case 'pinoytrendingnewsph.blogspot.com':
+			return await pinoytrendingnewsph(r, $);
+		case 'pinoytrending.altervista.org':
+			return await pinoytrending(r, $);
+		case 'www.tahonews.com':
+			return await tahonews(r, $);
+		case 'www.thenewsfeeder.net':
+			return await thenewsfeeder(r, $);
+
   }
 }
 
@@ -126,6 +145,101 @@ async function grpshorts(r, $){
           $('#Blog1 > div > article > div.post-outer > div > div.post-bottom > div.post-share-buttons.post-share-buttons-bottom').remove();
           $('#Blog1 > div > article > div.post-outer > div > div.post-header > div').remove();
     const article = $('#Blog1 > div > article > div.post-outer > div').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function maharlikanews(r, $){
+
+    const txt = $('#the-post > div > h1 > span').text()
+		$('#the-post > div > div.entry > section > ul:nth-child(42)').remove();
+    const article = $('#the-post > div > div.entry').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function okd2(r, $){
+  const articleId = $('#page > div > article')[0]['children'][1]['attribs']['id'];
+  console.log(articleId);
+
+    const txt = $('#' + articleId+ ' > div > header > h1').text()
+		$('#content > ul').remove();
+		$('#u_0_0 > div > div').remove();
+		$('#content > div.tags').remove();
+		$('#content > h3.coments-title').remove();
+		$('#content > p:nth-child(26)').remove();
+		$('#content > div.sharedaddy.sd-sharing-enabled > div').remove();
+		$('#wp_rp_first').remove();
+		$('#content > div.fb-comments.fb_iframe_widget.fb_iframe_widget_fluid_desktop').remove();
+
+    const article = $('#content').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function ilikeyouquotes(r, $){
+  const articleId = $('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry > div > article')[0]['children'][1]['attribs']['id'];
+console.log(articleId);
+    const txt = $('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry > div > div.post-header > div.post-head > h1').text()
+	$('#'+articleId+'> center:nth-child(10)').remove();
+	$('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry > div > article > div.second-meta').remove();
+	  const article = $('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry > div > article').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function philnewscourier(r, $){
+    const txt = $('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry.uncustomized-post-template > h3').text()
+const articleId = $("*[itemprop = 'postId']").get(0).attribs.content;
+		$('#the-post > div > div.entry > section > ul:nth-child(42)').remove();
+    const article = $('#post-body-' + articleId).text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function pinoynewsblogger(r, $){
+const articleId = $("*[itemprop = 'blogPost']").get(0).attribs.id;
+const titleId =articleId.substring(1);
+
+    const txt = $('#\\37 '+titleId+ ' > h1 > a').text();
+    const article = $('#post-body-' + articleId).text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function pinoytrendingnews(r, $){
+  const articleId = $('#content_box')[0]['children'][1]['attribs']['id'];
+	    console.log(articleId);
+
+
+    const txt = $('#'+articleId+ ' > div.single_post > header > h1').text();
+		$('#' +articleId +' > div.single_post > div > div.shareit.share-social-icons.bottom').remove();
+    const article = $('#' + articleId+ ' > div.single_post > div').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function pinoytrendingnewsph(r, $){
+    const txt = $('#Blog1 > div.blog-posts.hfeed > div > div > div > div.post-header > div.post-head > h1').text();
+    const article = $('#Blog1 > div.blog-posts.hfeed > div > div > div > article').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function pinoytrending(r, $){
+	  const articleId = $('#content')[0]['children'][1]['attribs']['id'];
+	    console.log(articleId);
+			    $('#' + articleId +' > div > div.av-social-share.av-social-type-text-icon.av-social-share-top').remove();
+
+    const txt = $('#' + articleId +' > header > h1').text();
+    const article = $('#' + articleId +' > div').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function tahonews(r, $){
+
+    const txt = $('#single > div > div > div > article > header > div.meta > h1').text();
+    const article = $('#single > div > div > div > article > section > div.text').text();
+    console.log(JSON.stringify({title: txt, text: article}));
+    return JSON.stringify({title: txt, text: article})
+}
+async function thenewsfeeder(r, $){
+const articleId = $("*[itemprop = 'articleBody']").get(0).attribs.id;
+console.log(articleId);
+    const txt = $('#Blog1 > div.blog-posts.hfeed > div > div > div > article > h3 > a').text();
+    const article = $('#'+articleId).text();
     console.log(JSON.stringify({title: txt, text: article}));
     return JSON.stringify({title: txt, text: article})
 }
