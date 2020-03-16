@@ -2,7 +2,7 @@
 #### Spawns an express server to parse a websites article and title 
 > Accessed through localhost:3000/url=${URL}
 > Supported Sites
-\n
+<br/>
 akoy-pilipino.blogspot.com
 www.allthingspinoy.com
 www.asianpolicy.press
